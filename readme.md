@@ -44,7 +44,7 @@ To capture packets (even if it sent another device), I changed the wireless mode
    airmon-ng check kill
    iwconfig wlan0 mode monitor
    Ifconfig wlan0 up
-![changed the wireless mode into monitor mode![image](https://github.com/ashiq4321/ethicalHacking/blob/8242a99dffa9017388de4353c73f51522739fe27/changed%20the%20wireless%20mode%20into%20monitor%20mode.png)
+![changed the wireless mode into monitor mode!](https://github.com/ashiq4321/ethicalHacking/blob/8242a99dffa9017388de4353c73f51522739fe27/changed%20the%20wireless%20mode%20into%20monitor%20mode.png)
 
 ### Packet Sniffing using airodump-ng
 check the available network with band 2.4GHz near me! 
@@ -63,9 +63,22 @@ check the available network with band 2.4GHz near me!
 
 ![available networks](https://github.com/ashiq4321/ethicalHacking/blob/8242a99dffa9017388de4353c73f51522739fe27/available%20networks.png)
 
-selected the below network for further attack ![image](https://github.com/user-attachments/assets/b2cdcf9a-9922-481b-ac33-a2a01c8d386e)
+selected the below network for further attack:
+| BSSID             | PWR | Beacon | #Data | #/s | CH | MB  | ENC  | CIPHER | AUTH | ESSID       |
+|-------------------|-----|--------|-------|-----|----|-----|------|--------|------|-------------|
+| 64:64:4A:91:5A:D6 | -48 | 16     | 4     | 0   | 1  | 130 | WPA2 | CCMP   | PSK  | Xiaomi_5AD5 |
 
-   
+4. **dump all client to the network  64:64:4A:91:5A:D6**
+   ```bash
+   airodump-ng --bssid 64:64:4A:91:5A:D6 --channel 1 --write test wlan0
+
+![available client to the network  64:64:4A:91:5A:D6](https://github.com/ashiq4321/ethicalHacking/blob/55f7c83fe408f4a494054c0807f6c3616829c0d5/available%20Clients%20in%20network%20%E2%80%9C64-64-4A-91-5A-D6%E2%80%9D.png)
+
+| Avaialble Clients |
+|-------------------|
+| E8:FB:1C:DC:1A:E1 |
+| 5C:E9:1E:8F:49:3E |
+
 ### Deauthentication Attack
 
 ## Gaining WPA/WPA2 Network Access 
