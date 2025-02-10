@@ -15,14 +15,59 @@ The network consists of a number of clients that are linked to one another. Clie
 
 ### Wireless network configurations 
 To keep myself anonymous, I changed my Mac address first. The steps are shown below.
-1.	ifconfig (to see the interface) and choose “wlan0“wireless network
-2.	Downing the adapter with: ifconfig wlan0 down (wlan0 is the adapter name)
-3.	ifconfig wlan0 hw ether 00:11:22:33:44:55 (00:11:22:33:44:55 is the new mac address)
-4.	ifconfig wlan0 up
+1. **Check the interface:**
+   ```bash
+   ifconfig
+choose “wlan0“ wireless network
 
+2. **Downing the adapters**
+   ```bash
+   ifconfig wlan0 down
+wlan0 is the adapter name
+
+3. **set new mac address**
+   ```bash
+   ifconfig wlan0 hw ether 00:11:22:33:44:55
+   
+00:11:22:33:44:55 is the new mac address
+
+4. **Active the adapters**
+   ```bash
+   ifconfig wlan0 up
+![wireless network adapter ‘wlan0‘configuration](https://github.com/ashiq4321/ethicalHacking/blob/8242a99dffa9017388de4353c73f51522739fe27/wireless%20network%20adapter%20%E2%80%98wlan0%E2%80%98configuration.png)
+
+To capture packets (even if it sent another device), I changed the wireless mode into monitor mode. The steps are shown below.
+
+1. **Active the adapters**
+   ```bash
+   ifconfig wlan0 down
+   airmon-ng check kill
+   iwconfig wlan0 mode monitor
+   Ifconfig wlan0 up
+![changed the wireless mode into monitor mode![image](https://github.com/ashiq4321/ethicalHacking/blob/8242a99dffa9017388de4353c73f51522739fe27/changed%20the%20wireless%20mode%20into%20monitor%20mode.png)
 
 ### Packet Sniffing using airodump-ng
-### Deauthentication Attack 
+check the available network with band 2.4GHz near me! 
+
+1. **Available network with band 2.4GHz**
+   ```bash
+   airodump-ng wlan0
+
+2. **Available network with band 5GHz**
+   ```bash
+   airodump-ng --band a wlan0
+
+3. **Available network with both band 5GHz**
+   ```bash
+   airodump-ng --band abg wlan0
+
+![available networks](https://github.com/ashiq4321/ethicalHacking/blob/8242a99dffa9017388de4353c73f51522739fe27/available%20networks.png)
+
+selected the below network for further attack ![image](https://github.com/user-attachments/assets/b2cdcf9a-9922-481b-ac33-a2a01c8d386e)
+
+   
+### Deauthentication Attack
+
 ## Gaining WPA/WPA2 Network Access 
 ### WPS Pixie-Dust
 ### WPS Null PIN
