@@ -80,7 +80,28 @@ selected the below network for further attack:
 | 5C:E9:1E:8F:49:3E |
 
 ### Deauthentication Attack
+Client “5C:E9:1E:8F:49:3E” is selected to disconnect from the network. Lets start the Deauthentication Attack 
+1. **Dump all the available clients**
+   ```bash
+   airodump-ng --bssid 64:64:4A:91:5A:D6 --channel 1 wlan0
 
+2. **active the replay attack**
+   ```bash
+   aireplay-ng --deauth 10000000 -a 64:64:4A:91:5A:D6 -c 76:6C:6D:84:BB:AE wlan0
+
+Finally, client “5C:E9:1E:8F:49:3E” disconnected from the network.
+
+![Client “5C:E9:1E:8F:49:3E” disconnected from the network](https://github.com/ashiq4321/ethicalHacking/blob/c9bb4301a24d1811f755578a2384c00fb11f458e/Client%20%E2%80%9C5C-E9-1E-8F-49-3E%E2%80%9D%20disconnected%20from%20the%20network.png)
+
+We can access/create the handshake by performing deauth attack and packet sniffing command simultaneously. In that case , the packet only includes the data of the handshake. The handshake doesn’t contain data that helps to recover the key, but it can be used if a key is valid or not.
+
+
+## Reference 
+1.	Course link: [Couser link](https://concordia.udemy.com/course/learn-ethical-hacking-from-scratch/)
+2.	Video that helped to install Kali in M2 arm-64 MacBook: [install kali in MacBook] (https://www.youtube.com/watch?v=tA50zg7D4mg)
+3.	Video that helped to install Adapter in VM:[install adapter](https://www.youtube.com/watch?v=hEXwOkyYNL0)
+
+# To be Continued
 ## Gaining WPA/WPA2 Network Access 
 ### WPS Pixie-Dust
 ### WPS Null PIN
@@ -89,4 +110,4 @@ selected the below network for further attack:
 ### WPA Handshaking 
 ## Findings 
 ## Conclusion 
-## Reference 
+
